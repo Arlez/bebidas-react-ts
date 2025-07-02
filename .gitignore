@@ -1,0 +1,14 @@
+# Ignorar archivos específicos
+.env
+
+# Ignorar tipos de archivos por extensión
+*.log
+*.temp
+*.DS_Store # Archivos de macOS
+
+# Ignorar directorios completos
+node_modules/
+build/
+dist/
+.vscode/ # Configuraciones del IDE
+temp/
