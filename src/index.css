@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@layer components {
+    .headerImage {
+        background: url(/public/bg.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}

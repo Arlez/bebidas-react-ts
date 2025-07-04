@@ -1,14 +1,18 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
+import { useAppStore } from '../stores/useAppStore'
 
 export default function Header() {
-    const {pathname} = useLocation()
-    console.log(pathname)
-    
+    const {pathname} = useLocation()    
     const isHome = useMemo(()=> pathname == '/' , [pathname])
 
+    const fetchCategories = useAppStore((state) => state.fetchCategories)
+    useEffect(() => {
+        fetchCategories()
+    }, [])
+        
     return (
-        <header className="bg-slate-800">
+        <header className={ isHome ? 'headerImage' : 'bg-slate-800' }>
             <div className="mx-auto container px-5 py-16">
                 <div className="flex justify-between items-center">
                     <div>
