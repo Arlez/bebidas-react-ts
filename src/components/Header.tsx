@@ -13,6 +13,7 @@ export default function Header() {
     const fetchCategories = useAppStore((state) => state.fetchCategories)
     const categories = useAppStore((state) => state.categories)
     const searchRecipies = useAppStore((state) => state.searchRecipies)
+    const showNotification = useAppStore((state) => state.showNotification)
 
     useEffect(() => {
         fetchCategories()
@@ -28,7 +29,10 @@ export default function Header() {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if(Object.values(searchFilters).includes('')){
-            console.log('todos los campos son requeridos');
+            showNotification({
+                text: 'todos los campos son requeridos',
+                error: true
+            })
             return
         }
 
